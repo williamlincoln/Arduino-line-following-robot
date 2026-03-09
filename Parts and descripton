@@ -7,6 +7,13 @@ Smart Robot Car Chassis Kit. Male to femail whires a 9 volt battery (to power th
 It takes about 20-30 minutes to build. use the instructons in the kit to build the frame, moters, batery pack, and power converter 
 (the frame, moters, batery pack, and power converter are all in the kit)
 ----------------------------------------------------------------PINS--------------------------------------------------------------
+Component            Arduino pin
+Left Motor (IN1)      Pin 5
+Left Motor (IN2)      Pin 6
+Right Motor (IN3)     Pin 9
+Right Motor (IN4)     Pin 10
+Left IR Sensor        Pin 2
+Right IR Sensor       Pin 3
 Download this code into the robot to make it work (make sure the green light on each color sensor turns on on white and off on black if not adjust the 
 gray screw in the blue box)
 #include <Servo.h>
