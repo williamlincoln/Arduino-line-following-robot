@@ -19,7 +19,8 @@ Right IR Sensor       Pin 3
 (The motor whiers have to be pluged into the Power converter first)
 -------------------------------------------------------------Finishing Touches----------------------------------------------------
 Download this code into the robot to make it work (make sure the green light on each color sensor turns on on white and off on black if not adjust the 
-gray screw in the blue box)
+gray screw in the blue box) Ensure both IR sensors are at equal height and distance from the line
+Misalignment causes the robot to veer
 -----------------------------------------------------------CODE------------------------------------------------------------------------
 #include <Servo.h>
 
