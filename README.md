@@ -1,6 +1,6 @@
 ----------------------------DESCRIPTION-----------------------
 
-  This is a arduino line following robot that follows a white line.
+  This is a arduino line following robot that follows a white line on a black suface useing a Elegoo r4
   
 ------------------------------PARTS----------------------------
 
