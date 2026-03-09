@@ -14,8 +14,11 @@ Right Motor (IN3)     Pin 9
 Right Motor (IN4)     Pin 10
 Left IR Sensor        Pin 2
 Right IR Sensor       Pin 3
+(The motor whiers have to be pluged into the Power converter first)
+-------------------------------------------------------------Finishing Touches----------------------------------------------------
 Download this code into the robot to make it work (make sure the green light on each color sensor turns on on white and off on black if not adjust the 
 gray screw in the blue box)
+-----------------------------------------------------------CODE------------------------------------------------------------------------
 #include <Servo.h>
 
 // PIN DEFINITIONS
