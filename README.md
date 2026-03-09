@@ -1,6 +1,7 @@
 ----------------------------DESCRIPTION-----------------------
 
   This is a arduino line following robot that follows a white line.
+  
 ------------------------------PARTS----------------------------
 
   It uses 2 elgoo color sensors a Elegoo uno r4 board 2WD (Two-Wheel Drive) 
