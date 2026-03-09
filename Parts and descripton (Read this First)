@@ -1,12 +1,12 @@
 
 
------------------------------------------------------------------DESCRIPTON-----------------------------------------------------
+-----------------------------------------------------------------DESCRIPTION-----------------------------------------------------
   This is a arduino line following robot that follows a white line.
 -----------------------------------------------------------------PARTS----------------------------------------------------------
-  It uses 2 elgoo color sensors a elgoo uno r4 board 2WD (Two-Wheel Drive) 
-Smart Robot Car Chassis Kit. Male to femail whires a 9 volt battery (to power the arduino r4) 4 doble a batterys and eletrical tape 
+  It uses 2 elgoo color sensors a Elegoo uno r4 board 2WD (Two-Wheel Drive) 
+Smart Robot Car Chassis Kit. Male to female wires a 9 volt battery (to power the arduino r4) 4 double a batterys and electrical tape 
 -----------------------------------------------------------------HOW TO BUILD----------------------------------------------------
-It takes about 20-30 minutes to build. use the instructons in the kit to build the frame, moters, batery pack, and power converter 
+It takes about 20-30 minutes to build. use the instructions in the kit to build the frame, motors, battery pack, and power converter 
 (the frame, moters, batery pack, and power converter are all in the kit)
 ----------------------------------------------------------------PINS--------------------------------------------------------------
 Component            Arduino pin
@@ -16,7 +16,7 @@ Right Motor (IN3)     Pin 9
 Right Motor (IN4)     Pin 10
 Left IR Sensor        Pin 2
 Right IR Sensor       Pin 3
-(The motor whiers have to be pluged into the Power converter first)
+(The motor wires have to be plugged into the Power converter first)
 -------------------------------------------------------------Finishing Touches----------------------------------------------------
 Download this code into the robot to make it work (make sure the green light on each color sensor turns on on white and off on black if not adjust the 
 gray screw in the blue box) Ensure both IR sensors are at equal height and distance from the line
