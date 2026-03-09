@@ -1,14 +1,41 @@
 
 
------------------------------------------------------------------DESCRIPTION-----------------------------------------------------
-  This is a arduino line following robot that follows a white line. Photos of finished robot (Link to google drive)
-https://drive.google.com/drive/folders/1yGve1HkFnBi4QFS7QK6_rCTeOKZN1S5r
------------------------------------------------------------------PARTS----------------------------------------------------------
-  It uses 2 elgoo color sensors a Elegoo uno r4 board 2WD (Two-Wheel Drive) 
-Smart Robot Car Chassis Kit. Male to female wires a 9 volt battery (to power the arduino r4) 4 double a batterys and electrical tape 
------------------------------------------------------------------HOW TO BUILD----------------------------------------------------
-It takes about 20-30 minutes to build. use the instructions in the kit to build the frame, motors, battery pack, and power converter 
-(the frame, moters, batery pack, and power converter are all in the kit)
+# Parts and Description (Read this First)
+
+## Project Overview
+This project involves creating a line-following robot using Arduino. 
+Below is a list of components needed for this project along with their descriptions.
+
+## Components Required
+1. **Arduino Uno**  
+   - The main controller for the robot, which will process the inputs and control the motors.
+
+2. **IR Sensors**  
+   - Infrared sensors to detect the line on the ground.
+
+3. **Motor Driver**  
+   - An H-Bridge motor driver to control the direction and speed of the motors.
+
+4. **DC Motors**  
+   - To drive the wheels of the robot, providing movement.
+
+5. **Chassis**  
+   - The frame that holds all components together.
+
+6. **Wheels**  
+   - The wheels attached to the motors for movement.
+
+7. **Power Supply**  
+   - Batteries or a power source to provide energy to the robot.
+
+## Assembly Instructions
+1. Mount the Arduino onto the chassis.
+2. Attach the IR sensors at the front of the robot and connect them to the Arduino.
+3. Connect the motor driver to the Arduino and the motors.
+4. Install the wheels onto the motors.
+5. Ensure the power supply is connected to the Arduino and motor driver.
+
+
 ----------------------------------------------------------------PINS--------------------------------------------------------------
 Component            Arduino pin
 Left Motor (IN1)      Pin 5
@@ -22,6 +49,7 @@ Right IR Sensor       Pin 3
 Download this code into the robot to make it work (make sure the green light on each color sensor turns on on white and off on black if not adjust the 
 gray screw in the blue box) Ensure both IR sensors are at equal height and distance from the line
 Misalignment causes the robot to veer
+
 -----------------------------------------------------------CODE------------------------------------------------------------------------
 #include <Servo.h>
 
