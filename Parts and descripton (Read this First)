@@ -1,56 +1,48 @@
 
 
-# Parts and Description (Read this First)
+🏎️ Arduino White-Line Follower
+📖 Project Overview
+This project is an autonomous robot built with an Arduino UNO R4 and an L298N Motor Driver.
+It is specifically designed to follow a white line on a black surface using "inverted" infrared logic.
 
-## Project Overview
-This project involves creating a line-following robot using Arduino. 
-Below is a list of components needed for this project along with their descriptions.
+🛠️ Components Required
+Arduino Uno (R4 Minima/WiFi): The brain of the robot.
 
-## Components Required
-1. **Arduino Uno**  
-   - The main controller for the robot, which will process the inputs and control the motors.
+IR Reflection Sensors (x2): Detects line contrast via infrared light.
 
-2. **IR Sensors**  
-   - Infrared sensors to detect the line on the ground.
+L298N Motor Driver: Acts as the power converter between the Arduino and the motors.
 
-3. **Motor Driver**  
-   - An H-Bridge motor driver to control the direction and speed of the motors.
+DC Gear Motors (x2): Provides the torque needed for movement.
 
-4. **DC Motors**  
-   - To drive the wheels of the robot, providing movement.
+2WD Smart Car Chassis: The structural frame.
 
-5. **Chassis**  
-   - The frame that holds all components together.
+Wheels & Caster: Two drive wheels and one pivot wheel for steering.
 
-6. **Wheels**  
-   - The wheels attached to the motors for movement.
+Dual Power Supply: 9V battery for logic; 4x AA batteries for motor power.
 
-7. **Power Supply**  
-   - Batteries or a power source to provide energy to the robot.
+🔌 Pin Mapping
+Component	Arduino Pin	Connection Note
+Left IR Sensor	Pin 2	Signal Output
+Right IR Sensor	Pin 3	Signal Output
+Left Motor (IN1)	Pin 5	L298N Input
+Left Motor (IN2)	Pin 6	L298N Input
+Right Motor (IN3)	Pin 9	L298N Input
+Right Motor (IN4)	Pin 10	L298N Input
+Note: Motor wires must be secured into the L298N screw terminals ("Power Converter") before connecting the jumper wires to the Arduino.
 
-## Assembly Instructions
-1. Mount the Arduino onto the chassis.
-2. Attach the IR sensors at the front of the robot and connect them to the Arduino.
-3. Connect the motor driver to the Arduino and the motors.
-4. Install the wheels onto the motors.
-5. Ensure the power supply is connected to the Arduino and motor driver.
+🔧 Assembly & Calibration
+Mounting: Secure the Arduino and L298N to the chassis.
 
+Sensor Alignment: Mount IR sensors at the front. Ensure they are at an equal height (approx. 5mm) from the floor.
 
-----------------------------------------------------------------PINS--------------------------------------------------------------
-Component            Arduino pin
-Left Motor (IN1)      Pin 5
-Left Motor (IN2)      Pin 6
-Right Motor (IN3)     Pin 9
-Right Motor (IN4)     Pin 10
-Left IR Sensor        Pin 2
-Right IR Sensor       Pin 3
-(The motor wires have to be plugged into the Power converter first)
--------------------------------------------------------------Finishing Touches----------------------------------------------------
-Download this code into the robot to make it work (make sure the green light on each color sensor turns on on white and off on black if not adjust the 
-gray screw in the blue box) Ensure both IR sensors are at equal height and distance from the line
-Misalignment causes the robot to veer
+The "Blue Box" Adjustment: * Place the robot on the white line.
 
------------------------------------------------------------CODE------------------------------------------------------------------------
+If the green light doesn't turn on, use a small screwdriver to turn the gray screw (potentiometer) on the blue box of the sensor.
+
+Goal: Light should be ON over white and OFF over black.
+
+💻 The Code
+C++
 #include <Servo.h>
 
 // PIN DEFINITIONS
@@ -58,40 +50,57 @@ int leftSensor = 2;
 int rightSensor = 3;
 int IN1 = 5, IN2 = 6, IN3 = 9, IN4 = 10; 
 
-Servo servo1;
-Servo servo2;
-
 void setup() {
   pinMode(leftSensor, INPUT);
   pinMode(rightSensor, INPUT);
-  pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT);
-  pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);
-
+  pinMode(IN1, OUTPUT); 
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT); 
+  pinMode(IN4, OUTPUT);
 }
 
 void loop() {
   int L = digitalRead(leftSensor);
   int R = digitalRead(rightSensor);
 
-  // Simple High-Power Logic (No PWM to avoid vibration)
+  // LOGIC: White Line Detection (HIGH = White, LOW = Black)
   if (L == LOW && R == LOW) {
-    // Forward
-    digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
-    digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
+    forward(); 
   } 
   else if (L == HIGH && R == LOW) {
-    // Left Turn
-    digitalWrite(IN1, LOW);  digitalWrite(IN2, LOW); 
-    digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
+    turnLeft(); // Left sensor hit white, adjust left
   } 
   else if (L == LOW && R == HIGH) {
-    // Right Turn
-    digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
-    digitalWrite(IN3, LOW);  digitalWrite(IN4, LOW); 
+    turnRight(); // Right sensor hit white, adjust right
   } 
   else {
-    // Stop
-    digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); 
-    digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); 
+    stopBot(); 
   }
 }
+
+void forward() {
+  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
+  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
+}
+
+void turnLeft() {
+  digitalWrite(IN1, LOW);  digitalWrite(IN2, LOW); 
+  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
+}
+
+void turnRight() {
+  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
+  digitalWrite(IN3, LOW);  digitalWrite(IN4, LOW); 
+}
+
+void stopBot() {
+  digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); 
+  digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); 
+}
+⚠️ Troubleshooting
+Veering: If the robot drifts, check that both sensors are perfectly level.
+
+Vibration: This code uses digitalWrite (Full Power) to prevent motor jitter common with the Servo library on R4 boards.
+
+Spinning: If the robot spins in circles, swap the two wires of the motor that is spinning backward.
+
