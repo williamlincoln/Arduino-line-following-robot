@@ -54,4 +54,4 @@ The IR sensors emit infrared light and measure the reflection.
 ---
 
 ## ❓ Questions or Feedback?
-Feel free to comment on the commit history or open an issue if you have questions abo
+Feel free to comment on the commit history or open an issue if you have questions abot this project
