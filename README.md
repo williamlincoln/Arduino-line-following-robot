@@ -85,45 +85,76 @@ int IN1 = 5, IN2 = 6, IN3 = 9, IN4 = 10;
 void setup() {
 
   pinMode(leftSensor, INPUT);
+  
   pinMode(rightSensor, INPUT);
+  
   pinMode(IN1, OUTPUT); 
+  
   pinMode(IN2, OUTPUT);
+  
   pinMode(IN3, OUTPUT); 
+  
   pinMode(IN4, OUTPUT);
+  
 }
 
 void loop() {
+
   int L = digitalRead(leftSensor);
+  
   int R = digitalRead(rightSensor);
+  
 
   // LOGIC: White Line Detection (HIGH = White, LOW = Black)
+  
   if (L == LOW && R == LOW) {
+  
     forward(); 
+    
   } 
+  
   else if (L == HIGH && R == LOW) {
+  
     turnLeft(); // Left sensor hit white, adjust left
+    
   } 
+  
   else if (L == LOW && R == HIGH) {
+  
     turnRight(); // Right sensor hit white, adjust right
+    
   } 
+  
   else {
+  
     stopBot(); 
+    
   }
+  
 }
 
 void forward() {
+
   digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
+  
   digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
+  
 }
 
 void turnLeft() {
+
   digitalWrite(IN1, LOW);  digitalWrite(IN2, LOW); 
+  
   digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
+  
 }
 
 void turnRight() {
+
   digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
+  
   digitalWrite(IN3, LOW);  digitalWrite(IN4, LOW); 
+  
 }
 
 void stopBot() {
