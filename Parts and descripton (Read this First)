@@ -41,6 +41,13 @@ If the green light doesn't turn on, use a small screwdriver to turn the gray scr
 
 Goal: Light should be ON over white and OFF over black.
 
+REMEMBER: THIS FOLLOWS A WHITE LINE NOT A BLACK LINE
+
+  Tips and tricks
+You can use a black table for the black surface it will work great!
+
+If you are useing painters tape for the white line use two layers of tape so the ir sencors can read it.
+
 💻 The Code
 C++
 #include <Servo.h>
