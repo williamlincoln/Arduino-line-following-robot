@@ -75,11 +75,15 @@ C++
 #include <Servo.h>
 
 // PIN DEFINITIONS
+
 int leftSensor = 2; 
+
 int rightSensor = 3;
+
 int IN1 = 5, IN2 = 6, IN3 = 9, IN4 = 10; 
 
 void setup() {
+
   pinMode(leftSensor, INPUT);
   pinMode(rightSensor, INPUT);
   pinMode(IN1, OUTPUT); 
