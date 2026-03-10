@@ -9,7 +9,7 @@ This robot uses two IR reflection sensors to track a white path. Unlike traditio
 ---
 
 ## 🛠️ Hardware Parts List
-
+It is $57.02 in total for all the things
 ### **Core Components**
 * **Microcontroller:** Elegoo UNO R4 (Minima or WiFi)
 * **Chassis:** 2WD (Two-Wheel Drive) Smart Robot Car Chassis Kit
