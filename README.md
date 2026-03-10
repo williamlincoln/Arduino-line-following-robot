@@ -152,9 +152,12 @@ void turnLeft() {
 
 void turnRight() {
 
+
   digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
   
+  
   digitalWrite(IN3, LOW);  digitalWrite(IN4, LOW); 
+  
   
 }
 
