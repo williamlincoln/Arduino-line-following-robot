@@ -55,3 +55,8 @@ The IR sensors emit infrared light and measure the reflection.
 
 ## ❓ Questions or Feedback?
 Feel free to comment on the commit history or open an issue if you have questions abot this project
+
+---
+
+## Parts links
+https://www.amazon.com/ELEGOO-Board-ATmega328P-ATMEGA16U2-Compliant/dp/B01EWOE0UU/ref=sr_1_23?crid=3E20SBR2YSH5N&dib=eyJ2IjoiMSJ9.WqU-Fj-ghzrQEQi_6K5QtYNmHk6FW8tr7Xm95PmTbxxdNjpADdG4mJXtA-0V4LMq8ssUMdQqP5V8vUN231YhlYBYIkBmZ1uOp-HaUHA7x99C0i2AP4xaBm6EO0psqnQwLfvMjoGJ4gZV96fRob0xjGg3Gt6Q9HV_30bY9l2vzQyVmW8qCCG20jkq2SI8expR7DwbicPy-BqzAiGoOHEEF-KDk7aiYG0F1fkfKWAP05o.lKbSxSKyr3_n6juYekAj0kGLqZrNut_UFJCaqdcjkjI&dib_tag=se&keywords=arduino+line+following+car&qid=1773171324&sprefix=arduino+line+following+car%2Caps%2C154&sr=8-23
