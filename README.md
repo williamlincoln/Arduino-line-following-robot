@@ -66,3 +66,63 @@ Feel free to comment on the commit history or open an issue if you have question
 * **Electrical wires:** https://www.amazon.com/BNTECHGO-Electric-Gauge-Tinned-Copper/dp/B0852TP6Q5/ref=sr_1_5?crid=K59AG51YK5LZ&dib=eyJ2IjoiMSJ9.IxWTtTLjT3jZUpuRfg4Wd-ZMdYX6be1-GXWuZIEN9Zb2pQjrfdsYmpsHfADi0E5DGz5dR5nYGH6tEx433o58tEgyxcpC5CxEzPst-VRivN33hlPnyObWXjvXDDS3r5lhEKJfmRHDqZoBbBo2JCGXk0a5R5Dgk8hV2_xRvs0MlRJDM7dE3LCd6lkgF0Su3MSFHxmUsGw8tGEvPvcyz2CRElSHPmoVDemFeb6EENyzHAY.WjzNMrnUTtmtweKC__8anxklNyYEn16u-qz4TqlIG0M&dib_tag=se&keywords=arduino%2Bwires&qid=1773172113&sprefix=arduino%2Bwires%2Caps%2C187&sr=8-5&th=1
 * **Batterys (you need eight batterys in total):** [https://www.amazon.com/Energizer-Batteries-Pack-Double-Alkaline/dp/B0D51V5K5J/ref=sr_1_17?crid=3MXEEFWT841VA&dib=eyJ2IjoiMSJ9.APMTKktpxODsDRlZ8IR_790zN6QJCAJi3HQaNtsTkhu5iESTU55Xjb0oobtQQ00mZwPiisQI47zSAeHNZSpxMhScOfr8Hpj8SD2Nw8JnGXl2pL9bJw3Z-MwpZCJob0cF-bFs_sETJPCyCddyRB4aiZwNbAN2Z_lD2rIL7h1E-dGwb7hSa57qOyCTHuovBUtIb_VDiPh4TVIeIkRq2SIUBEI97xTwyQWL8lUZ8SnNz_Ur8VAMwI7xRZT01L9pbUlnXgGzAWJ7RXJQ_cDavQ9ix8ssOZU4gef4o32stRTXJBk.QGlEmpJJGXydHkNf2KDduotXT-D-SOinGt5vFGwyTvE&dib_tag=se&keywords=double%2Ba%2Bbatteries&qid=1773172276&sprefix=double%2Caps%2C222&sr=8-17&th=1](https://www.amazon.com/Duracell-CopperTop-Batteries-All-Purpose-Household/dp/B00000JHQ6/ref=sr_1_12?crid=180VQVH7VGDRK&dib=eyJ2IjoiMSJ9.9BhQMbW-D1k7f1etQtjFXpFJrbsz407aoe9KeqjaSYqV8f2eg_TFPpONQzp053NN8hllgCAKvFVvc40kCuNKNxVnPWvyaGg7E2F2tBUdQdL5oYtTjQus2SyQZSxdIChl8eBbTdvPL7iLV11Mzvg7iqvNcZy-fvCtmwvefI-cs-gbjLOIFWlEgD0Zn9Xqx1pyEWX8q8X6-hfyqpHvetSDvj_UhrhyIOw4ir2CA91Wh8iQO39Lmz4y2kWomxu48kjMRSmuIp8wlmNV38qGY7CGqSUKHVad_lIy7Sw_xctta3M.6VbEUPsNj05aff5fMr6jM_2OzwhZVXWDczSIFBQu_bI&dib_tag=se&keywords=double%2Ba%2Bbatteries&qid=1773172738&sprefix=double%2Ba%2Bbatteries%2Caps%2C264&sr=8-12&th=1)
 * **Color senser (you need two):** https://www.amazon.com/Mixse-Infrared-IR-Obstacle-Avoidance/dp/B076QGXGRP/ref=sr_1_1?crid=1DI08AG66VKXE&dib=eyJ2IjoiMSJ9.iZD2tYgNPd1GHie6l8emrsdbnlAEXQ62MUK0FineJYuyVf9NbaaGovAbkjrCAX_VwOIy2DY_nn5yWFIzjD5TiYo8rDUYWaBcXW3i6GMeAbG6UmZ8WPaz88ZcUX72ruVLjwaBouA4a93L6lAvpT17G-wGq1S_z-FUEKDTerjllwcIInFcha0wwoyHKECSY5v0DWx0EbFMWdIEXlWC6LA2DwpNOOpr0_olS9dylqhjjtw.QK2uVp3VjMcZEUh7_Y3RHWFF66Aw7L3nd3tIHSEjnyQ&dib_tag=se&keywords=arduino+infrared+sensor+2+pack&qid=1773172489&sprefix=arduino+infared+sensor+2+pack%2Caps%2C155&sr=8-1&xpid=7AMDi5j_pLZzb
+
+---
+
+## Code
+
+C++
+#include <Servo.h>
+
+// PIN DEFINITIONS
+int leftSensor = 2; 
+int rightSensor = 3;
+int IN1 = 5, IN2 = 6, IN3 = 9, IN4 = 10; 
+
+void setup() {
+  pinMode(leftSensor, INPUT);
+  pinMode(rightSensor, INPUT);
+  pinMode(IN1, OUTPUT); 
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT); 
+  pinMode(IN4, OUTPUT);
+}
+
+void loop() {
+  int L = digitalRead(leftSensor);
+  int R = digitalRead(rightSensor);
+
+  // LOGIC: White Line Detection (HIGH = White, LOW = Black)
+  if (L == LOW && R == LOW) {
+    forward(); 
+  } 
+  else if (L == HIGH && R == LOW) {
+    turnLeft(); // Left sensor hit white, adjust left
+  } 
+  else if (L == LOW && R == HIGH) {
+    turnRight(); // Right sensor hit white, adjust right
+  } 
+  else {
+    stopBot(); 
+  }
+}
+
+void forward() {
+  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
+  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
+}
+
+void turnLeft() {
+  digitalWrite(IN1, LOW);  digitalWrite(IN2, LOW); 
+  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
+}
+
+void turnRight() {
+  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
+  digitalWrite(IN3, LOW);  digitalWrite(IN4, LOW); 
+}
+
+void stopBot() {
+  digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); 
+  digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); 
+}
