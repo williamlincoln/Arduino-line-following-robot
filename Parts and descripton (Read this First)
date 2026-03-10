@@ -6,8 +6,7 @@ This project is an autonomous robot built with an Arduino UNO R4 and an L298N Mo
 It is specifically designed to follow a white line on a black surface using "inverted" infrared logic.
 
 🛠️ Components Required
-Arduino Uno (R4 Minima/WiFi): The brain of the robot.
-
+Arduino Uno (R3): The brain of the robot.
 IR Reflection Sensors (x2): Detects line contrast via infrared light.
 
 L298N Motor Driver: Acts as the power converter between the Arduino and the motors.
@@ -19,6 +18,7 @@ DC Gear Motors (x2): Provides the torque needed for movement.
 Wheels & Caster: Two drive wheels and one pivot wheel for steering.
 
 Dual Power Supply: 9V battery for logic; 4x AA batteries for motor power.
+
 
 🔌 Pin Mapping
 Component	Arduino Pin	Connection Note
